@@ -4,37 +4,37 @@
 
 class CasioCalculator {
 public:
-    long long add(const std::vector<long long>& numbers) {
-        long long result = 0;
-        for (long long num : numbers) {
+    double add(const std::vector<long long>& numbers) {
+        double result = 0;
+        for (double num : numbers) {
             result += num;
         }
         return result;
     }
 
-    long long subtract(const std::vector<long long>& numbers) {
-        long long result = numbers[0];
+    double subtract(const std::vector<long long>& numbers) {
+        double result = numbers[0];
         for (size_t i = 1; i < numbers.size(); ++i) {
             result -= numbers[i];
         }
         return result;
     }
 
-    long long multiply(const std::vector<long long>& numbers) {
-        long long result = 1;
-        for (long long num : numbers) {
+    double multiply(const std::vector<long long>& numbers) {
+        double result = 1;
+        for (double num : numbers) {
             result *= num;
         }
         return result;
     }
 
-    long long divide(const std::vector<long long>& numbers) {
+    double divide(const std::vector<long long>& numbers) {
         if (numbers.size() < 2) {
             std::cerr << "Error: Insufficient operands for division." << std::endl;
             return 0; 
         }
 
-        long long result = numbers[0];
+        double result = numbers[0];
         for (size_t i = 1; i < numbers.size(); ++i) {
             if (numbers[i] != 0) {
                 result /= numbers[i];
@@ -46,11 +46,11 @@ public:
         return result;
     }
 
-    long long square(long long a) {
+    double square(double a) {
         return a * a;
     }
 
-    long long power(long long base, long long exponent) {
+    double power(double base, double exponent) {
         return std::pow(base, exponent);
     }
 };
@@ -71,19 +71,19 @@ int main() {
         }
 
         if (operation == 's') {
-            long long operand;
+            double operand;
             std::cout << "Enter number to square: ";
             std::cin >> operand;
             std::cout << "Result: " << calculator.square(operand) << std::endl;
         } else if (operation == '^') {
-            long long base, exponent;
+            double base, exponent;
             std::cout << "Enter base: ";
             std::cin >> base;
             std::cout << "Enter exponent: ";
             std::cin >> exponent;
             std::cout << "Result: " << calculator.power(base, exponent) << std::endl;
         } else {
-            long long operand;
+            double operand;
             std::cout << "Enter operand (enter 0 to finish input): ";
             while (true) {
                 std::cin >> operand;
